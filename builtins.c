@@ -1,6 +1,7 @@
 #include "builtins.h"
 
 #include "main.h"
+#include "bubulles.h"
 
 #include <sys/types.h>
 #include <pwd.h>
@@ -30,4 +31,12 @@ int builtin_exit(struct cmd* cmd) {
     }
     exit_shell(atoi(cmd->args[1]));
     return 0;
+}
+
+int builtin_bubulles(struct cmd* cmd) {
+    if (!cmd->args[1]) {
+        return bubulles_test();
+    } else {
+        return bubulles_sort_file(cmd->args[1]);
+    }
 }

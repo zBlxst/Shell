@@ -55,12 +55,9 @@ void apply_redirects(struct cmd *cmd) {
 }
 
 int execute_builtin(struct cmd *cmd) {
-	if (!strcmp(cmd->args[0], "cd")) {
-		return builtin_cd(cmd);
-	}
-	if (!strcmp(cmd->args[0], "exit")) {
-		return builtin_exit(cmd);
-	}
+	if (!strcmp(cmd->args[0], "cd")) return builtin_cd(cmd);
+	if (!strcmp(cmd->args[0], "exit")) return builtin_exit(cmd);
+    if (!strcmp(cmd->args[0], "bubulles")) return builtin_bubulles(cmd);
 	return NOT_BUILTIN;
 }
 
@@ -278,7 +275,7 @@ int exit_shell(int status) {
 }
 
 int main(int argc, char **argv) {
-	setenv("PS1", "toto", 0);
+	setenv("PS1", "In shell : \\u@\\h:\\w\\$ ", 0);
 
 	printf("Welcome to zblxst's shell!\n");
 

@@ -1,5 +1,5 @@
 TMPFILES = lex.c parse.c
-MODULES = main parse builtins
+MODULES = main parse builtins bubulles
 OBJECTS = $(MODULES:=.o)
 CC = gcc  
 CC_OPTIONS = -g -Wall -Wno-stringop-overflow
